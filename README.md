@@ -1,4 +1,4 @@
-A library intended to interface with kissfft for my visualizer called Drop.
+A library intended to interface with [kissfft](https://github.com/bazaar-projects/kissfft) for my visualizer called Drop.
 
 Windows Compilation:
 
