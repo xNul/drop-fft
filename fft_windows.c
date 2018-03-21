@@ -8,7 +8,6 @@ __declspec(dllexport) float* __cdecl fft(float *samples, int nSamples, int tickC
     kiss_fft_cpx *sout = malloc(sizeof(kiss_fft_cpx)*nSamples);
     kiss_fft_scalar zero;
     memset(&zero, 0, sizeof(zero));
-    srand(time(0));
   
     // float array -> kiss_fft_scalar array
     int i;
@@ -22,7 +21,7 @@ __declspec(dllexport) float* __cdecl fft(float *samples, int nSamples, int tickC
     
     // complex sample to normalized sample using pythagorean theorem
     for (i=0; i<tickCount; ++i) {
-      samples[i] = ((float) abs(2*sqrt((sout[i].r)*(sout[i].r) + (sout[i].i)*(sout[i].i))))/nSamples;
+      samples[i] = fabs(2*sqrt((sout[i].r)*(sout[i].r) + (sout[i].i)*(sout[i].i)))/nSamples;
     }
     
     free(sout);
